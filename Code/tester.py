@@ -126,25 +126,6 @@ def linearity_checker():
     return
 
 
-#temporary fake observatory earth functions for proof of concept
-def XE(t):
-    return t^2
-
-def YE(t):
-    return 0
-
-# calculates residual of detections to some line
-def residual(guess, loc):
-    # indexing into guess is alpha = 0, alpha dot = 1, beta = 2, beta dot = 3, gamma = 4
-    # indexing into loc is theta x = 0, theta y = 1, t = 2
-    x_loc = guess[0] + guess[1] * loc[2] + guess[4] * XE(loc[2])
-    y_loc = guess[2] + guess[3] * loc[2] + guess[4] * YE(loc[2])
-    distance = np.sqrt(
-        np.square(x_loc - loc[0]) 
-        + np.square(y_loc - loc[1])
-    )
-
-    return distance
 
 #order of opperations
 #guess gamma
@@ -217,14 +198,39 @@ def manual_algo():
     #EXAMPLE FOR NON LINEAR 
     #https://scipy-lectures.org/intro/summary-exercises/optimize-fit.html
 
-    
+
+#temporary fake observatory earth functions for proof of concept
+def XE(t):
+    return t^2
+
+def YE(t):
+    return 0
+
+# calculates residual of detections to some line
+def residual(guess, loc):
+    # indexing into guess is alpha = 0, alpha dot = 1, beta = 2, beta dot = 3, gamma = 4
+    # indexing into loc is theta x = 0, theta y = 1, t = 2
+    x_loc = guess[0] + guess[1] * loc[2] + guess[4] * XE(loc[2])
+    y_loc = guess[2] + guess[3] * loc[2] + guess[4] * YE(loc[2])
+    distance = np.sqrt(
+        np.square(x_loc - loc[0]) 
+        + np.square(y_loc - loc[1])
+    )
+
+    return distance
+
+# extra function so itteration works properly
+def fun (guess):
+    residual
+    return 
+
 fake_data = [[0, 0, 0], [1 ,1, 1], [4, 1, 2]]
 # initial guess for fake data
 #alpha, alpha dot, beta, beta dot, gamma
 fake_guess = [1, 1, 0, 1, 0]
 
 def optimise():
-    res_1 = sc.optimize.least_squares(residual, fake_guess)
+    res_1 = sc.optimize.least_squares(fun, fake_guess)
     print(res_1)
 
 
