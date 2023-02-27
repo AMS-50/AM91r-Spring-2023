@@ -1,0 +1,28 @@
+5 sigma
+detections = 5011
+min time = 2458724.711918469
+max time = 2458724.88711317
+difference in time = 0.17519470117986202
+time steps = 102 unique time steps
+
+4 sigma 
+same times
+detections = 12686
+
+3 sigma
+same times
+detections = 140889
+(impossible to see sizes at s=3) (detections everywhere)
+
+
+
+For linearity checker 
+start guess
+-9.0740, -4.9512
+actual
+(-9.07490517244662, -4.952325229617142, 2458724.711918469)
+
+end guess
+-9.1063, -4.9737
+actual
+(-9.10569233108248, -4.972972913527404, 2458724.88711317)
