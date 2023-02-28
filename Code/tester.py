@@ -219,15 +219,19 @@ def residual(guess, loc):
 
     return distance
 
-# extra function so itteration works properly
-def fun (guess):
-    residual
-    return 
-
 fake_data = [[0, 0, 0], [1 ,1, 1], [4, 1, 2]]
 # initial guess for fake data
 #alpha, alpha dot, beta, beta dot, gamma
 fake_guess = [1, 1, 0, 1, 0]
+
+# extra function so itteration works properly
+def fun (guess):
+    np.zeroes(fake_data.len())
+    for data in fake_data:
+        residual(guess, data)
+    return 
+
+
 
 def optimise():
     res_1 = sc.optimize.least_squares(fun, fake_guess)
@@ -238,7 +242,7 @@ def main():
     #initial_data_display()
     #guess_propogate()
     #linearity_checker()
-
+    optimise()
     return
 
 if __name__ == "__main__":
