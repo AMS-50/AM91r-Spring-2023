@@ -219,17 +219,18 @@ def residual(guess, loc):
 
     return distance
 
-fake_data = [[0, 0, 0], [1 ,1, 1], [4, 1, 2]]
+fake_data = [[0, 0, 0], [1 ,1, 1], [4, 2, 2], [9, 3, 3]]
 # initial guess for fake data
 #alpha, alpha dot, beta, beta dot, gamma
-fake_guess = [1, 1, 0, 1, 0]
+fake_guess = [1, 1, 0, 0, 0]
 
 # extra function so itteration works properly
 def fun (guess):
-    np.zeroes(fake_data.len())
+    print("in fun")
+    output = np.zeros(len(fake_data))
     for data in fake_data:
         residual(guess, data)
-    return 
+    return output
 
 
 
