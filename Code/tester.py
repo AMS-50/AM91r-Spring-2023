@@ -228,8 +228,10 @@ fake_guess = [1, 1, 0, 0, 0]
 def fun (guess):
     print("in fun")
     output = np.zeros(len(fake_data))
+    i = 0
     for data in fake_data:
-        residual(guess, data)
+        output[i] = residual(guess, data)
+        i += 1
     return output
 
 
