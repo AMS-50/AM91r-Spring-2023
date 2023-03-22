@@ -201,7 +201,7 @@ def manual_algo():
 
 #temporary fake observatory earth functions for proof of concept
 def XE(t):
-    return t^2
+    return t ** 2
 
 def YE(t):
     return 0
@@ -238,7 +238,9 @@ def fun (guess):
 
 def optimise():
     res_1 = sc.optimize.least_squares(fun, fake_guess)
-    print(res_1)
+    print("cost = ", res_1.cost)
+    print("solution = ", res_1.x)
+    #print(res_1)
 
 
 def main():
